@@ -1,0 +1,2 @@
+ffmpeg -loop 1 -r 2 -i ~/Desktop/2niteFinal_3000_2.jpeg -i ./2nite-5_master_podcast.mp3  -vf scale=-1:380 -c:v libx264 -preset slow -tune stillimage -crf 18 -c:a copy -shortest -pix_fmt yuv420p -threads 0 output.mkv 
+

@@ -5,5 +5,5 @@ gst-launch-0.10 -v decklinksrc mode=18 connection=1 audio-input=1 name=demux dem
 gst-launch-1.0 -v  decklinkvideosrc  ! queue ! videoconvert  ! videorate ! videoscale ! videoconvert  ! v4l2sink  device=/dev/video1 sync=false  decklinkaudiosrc device-number=0 connection=1 ! audioconvert  !     jackaudiosink client-name="HDMI in"
 
 
-ffmpeg -f x11grab -r 25 -s 1280x720 -i :0.0+3200,328 -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video2 
+ffmpeg -f x11grab -probesize 10M -r 25 -s 1280x720 -i :0.0+3200,328 -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video2 
 
